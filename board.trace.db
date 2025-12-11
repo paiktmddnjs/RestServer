@@ -1,0 +1,368 @@
+2025-12-09 11:23:08.594698+09:00 jdbc[3]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.tools.GUIConsole.createDatabase(GUIConsole.java:472)
+	at org.h2.tools.GUIConsole.actionPerformed(GUIConsole.java:502)
+	at java.desktop/java.awt.Button.processActionEvent(Button.java:419)
+	at java.desktop/java.awt.Button.processEvent(Button.java:387)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5001)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4833)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:716)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:97)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:746)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:744)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:743)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 28 more
+2025-12-09 11:23:20.692760+09:00 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Wrong user name or password [28000-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
+2025-12-09 11:23:32.970584+09:00 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Wrong user name or password [28000-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
+2025-12-09 11:23:51.172975+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BOARD" not found; SQL statement:
+DROP TABLE BOARD [42102-240]
+2025-12-09 11:23:51.186105+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MEMBER" not found; SQL statement:
+DROP TABLE MEMBER [42102-240]
+2025-12-09 11:24:03.493710+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select * [*]member"; SQL statement:
+select * member [42000-240]
+2025-12-09 16:34:11.329748+09:00 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Wrong user name or password [28000-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
+2025-12-09 16:59:52.146449+09:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MEMBER_EMAIL" not found; SQL statement:
+select * from Member_EMAIL [42102-240]
+2025-12-09 17:00:08.698608+09:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MEMBER_EMAIL" not found; SQL statement:
+select * from MEMBER_EMAIL [42102-240]
+2025-12-09 17:00:11.152408+09:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MEMBER_EMAIL" not found; SQL statement:
+select * from MEMBER_EMAIL [42102-240]
+2025-12-09 17:00:12.512809+09:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MEMBER_EMAIL" not found; SQL statement:
+select * from MEMBER_EMAIL [42102-240]
+2025-12-09 17:41:44.435274+09:00 jdbc[6]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
+2025-12-09 17:41:44.435274+09:00 jdbc[6]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:85)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:135)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
+2025-12-11 11:36:25.506320+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- MEMBER 테이블\000d\000aCREATE TABLE MEMBER (\000d\000a\0009USER_ID VARCHAR(30) PRIMARY KEY,\000d\000a\0009USER_PWD VARCHAR(100) NOT NULL,\000d\000a\0009USER_NAME VARCHAR(15) NOT NULL,\000d\000a\0009EMAIL VARCHAR(254),\000d\000a\0009GENDER CHAR(1) CHECK (GENDER IN ('M', 'F')),\000d\000a\0009AGE INT,\000d\000a\0009PHONE VARCHAR(13),\000d\000a\0009ADDRESS VARCHAR(100),\000d\000a\0009ENROLL_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009MODIFY_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N'))\000d\000a)"; SQL statement:
+- MEMBER 테이블
+CREATE TABLE MEMBER (
+	USER_ID VARCHAR(30) PRIMARY KEY,
+	USER_PWD VARCHAR(100) NOT NULL,
+	USER_NAME VARCHAR(15) NOT NULL,
+	EMAIL VARCHAR(254),
+	GENDER CHAR(1) CHECK (GENDER IN ('M', 'F')),
+	AGE INT,
+	PHONE VARCHAR(13),
+	ADDRESS VARCHAR(100),
+	ENROLL_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N'))
+) [42000-240]
+2025-12-11 11:36:25.525480+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- PROFILE 테이블\000d\000aCREATE TABLE PROFILE (\000d\000a\0009PROFILE_ID IDENTITY PRIMARY KEY,\000d\000a\0009USER_ID VARCHAR(30) UNIQUE,\000d\000a\0009PROFILE_IMAGE VARCHAR(100),\000d\000a\0009INTRO VARCHAR(300),\000d\000a\0009FOREIGN KEY (USER_ID) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- PROFILE 테이블
+CREATE TABLE PROFILE (
+	PROFILE_ID IDENTITY PRIMARY KEY,
+	USER_ID VARCHAR(30) UNIQUE,
+	PROFILE_IMAGE VARCHAR(100),
+	INTRO VARCHAR(300),
+	FOREIGN KEY (USER_ID) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:36:25.526480+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- NOTICE 테이블\000d\000aCREATE TABLE NOTICE (\000d\000a\0009NOTICE_NO IDENTITY PRIMARY KEY, -- AUTO_INCREMENT\000d\000a\0009NOTICE_TITLE VARCHAR(30) NOT NULL,\000d\000a\0009NOTICE_WRITER VARCHAR(30) NOT NULL,\000d\000a\0009NOTICE_CONTENT VARCHAR(200) NOT NULL,\000d\000a\0009CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009FOREIGN KEY (NOTICE_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- NOTICE 테이블
+CREATE TABLE NOTICE (
+	NOTICE_NO IDENTITY PRIMARY KEY, -- AUTO_INCREMENT
+	NOTICE_TITLE VARCHAR(30) NOT NULL,
+	NOTICE_WRITER VARCHAR(30) NOT NULL,
+	NOTICE_CONTENT VARCHAR(200) NOT NULL,
+	CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (NOTICE_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:36:25.527480+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- BOARD 테이블\000d\000aCREATE TABLE BOARD (\000d\000a\0009BOARD_NO IDENTITY PRIMARY KEY,\000d\000a\0009BOARD_TITLE VARCHAR(100) NOT NULL,\000d\000a\0009BOARD_WRITER VARCHAR(30) NOT NULL,\000d\000a\0009BOARD_CONTENT CLOB NOT NULL, -- 큰 텍스트는 CLOB 사용\000d\000a\0009ORIGIN_NAME VARCHAR(100),\000d\000a\0009CHANGE_NAME VARCHAR(100),\000d\000a\0009COUNT INT DEFAULT 0,\000d\000a\0009CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),\000d\000a\0009FOREIGN KEY (BOARD_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- BOARD 테이블
+CREATE TABLE BOARD (
+	BOARD_NO IDENTITY PRIMARY KEY,
+	BOARD_TITLE VARCHAR(100) NOT NULL,
+	BOARD_WRITER VARCHAR(30) NOT NULL,
+	BOARD_CONTENT CLOB NOT NULL, -- 큰 텍스트는 CLOB 사용
+	ORIGIN_NAME VARCHAR(100),
+	CHANGE_NAME VARCHAR(100),
+	COUNT INT DEFAULT 0,
+	CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),
+	FOREIGN KEY (BOARD_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:36:25.528480+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- REPLY 테이블\000d\000aCREATE TABLE REPLY (\000d\000a\0009REPLY_NO IDENTITY PRIMARY KEY,\000d\000a\0009REPLY_CONTENT VARCHAR(400) NOT NULL,\000d\000a\0009REF_BNO INT NOT NULL,\000d\000a\0009REPLY_WRITER VARCHAR(30) NOT NULL,\000d\000a\0009CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\000d\000a\0009STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),\000d\000a\0009FOREIGN KEY (REF_BNO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,\000d\000a\0009FOREIGN KEY (REPLY_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- REPLY 테이블
+CREATE TABLE REPLY (
+	REPLY_NO IDENTITY PRIMARY KEY,
+	REPLY_CONTENT VARCHAR(400) NOT NULL,
+	REF_BNO INT NOT NULL,
+	REPLY_WRITER VARCHAR(30) NOT NULL,
+	CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),
+	FOREIGN KEY (REF_BNO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,
+	FOREIGN KEY (REPLY_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:36:25.529481+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- TAG 테이블\000d\000aCREATE TABLE TAG (\000d\000a\0009TAG_ID IDENTITY PRIMARY KEY,\000d\000a\0009TAG_NAME VARCHAR(30) NOT NULL UNIQUE\000d\000a)"; SQL statement:
+- TAG 테이블
+CREATE TABLE TAG (
+	TAG_ID IDENTITY PRIMARY KEY,
+	TAG_NAME VARCHAR(30) NOT NULL UNIQUE
+) [42000-240]
+2025-12-11 11:36:25.529481+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- BOARD_TAG 테이블\000d\000aCREATE TABLE BOARD_TAG (\000d\000a\0009BOARD_NO INT,\000d\000a\0009TAG_ID INT,\000d\000a\0009PRIMARY KEY (BOARD_NO, TAG_ID),\000d\000a\0009FOREIGN KEY (BOARD_NO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,\000d\000a\0009FOREIGN KEY (TAG_ID) REFERENCES TAG(TAG_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- BOARD_TAG 테이블
+CREATE TABLE BOARD_TAG (
+	BOARD_NO INT,
+	TAG_ID INT,
+	PRIMARY KEY (BOARD_NO, TAG_ID),
+	FOREIGN KEY (BOARD_NO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,
+	FOREIGN KEY (TAG_ID) REFERENCES TAG(TAG_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:36:50.662245+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PROFILE" not found; SQL statement:
+select * from profile [42102-240]
+2025-12-11 11:37:15.893580+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop [*]* table"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
+drop * table [42001-240]
+2025-12-11 11:38:09.973475+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table [*]all"; expected "identifier"; SQL statement:
+drop table all [42001-240]
+2025-12-11 11:38:13.628131+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table [*]*"; expected "identifier"; SQL statement:
+drop table * [42001-240]
+2025-12-11 11:39:47.717329+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP [*]DATABASE mydb"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP DATABASE mydb [42001-240]
+2025-12-11 11:39:47.718352+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE [*]DATABASE mydb"; expected "OR REPLACE, FORCE, VIEW, MATERIALIZED, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL TEMPORARY, GLOBAL TEMPORARY, TEMPORARY, TABLE, SYNONYM, UNIQUE, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE mydb [42001-240]
+2025-12-11 11:40:34.660951+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP [*]DATABASE mydb"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP DATABASE mydb [42001-240]
+2025-12-11 11:41:04.108932+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- MEMBER 테이블\000d\000aCREATE TABLE MEMBER (\000d\000a\0009USER_ID VARCHAR(30) PRIMARY KEY,\000d\000a\0009USER_PWD VARCHAR(100) NOT NULL,\000d\000a\0009USER_NAME VARCHAR(15) NOT NULL,\000d\000a\0009EMAIL VARCHAR(254),\000d\000a\0009GENDER CHAR(1) CHECK (GENDER IN ('M', 'F')),\000d\000a\0009AGE INT,\000d\000a\0009PHONE VARCHAR(13),\000d\000a\0009ADDRESS VARCHAR(100),\000d\000a\0009ENROLL_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009MODIFY_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N'))\000d\000a)"; SQL statement:
+- MEMBER 테이블
+CREATE TABLE MEMBER (
+	USER_ID VARCHAR(30) PRIMARY KEY,
+	USER_PWD VARCHAR(100) NOT NULL,
+	USER_NAME VARCHAR(15) NOT NULL,
+	EMAIL VARCHAR(254),
+	GENDER CHAR(1) CHECK (GENDER IN ('M', 'F')),
+	AGE INT,
+	PHONE VARCHAR(13),
+	ADDRESS VARCHAR(100),
+	ENROLL_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	MODIFY_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N'))
+) [42000-240]
+2025-12-11 11:41:04.109935+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- PROFILE 테이블\000d\000aCREATE TABLE PROFILE (\000d\000a\0009PROFILE_ID IDENTITY PRIMARY KEY,\000d\000a\0009USER_ID VARCHAR(30) UNIQUE,\000d\000a\0009PROFILE_IMAGE VARCHAR(100),\000d\000a\0009INTRO VARCHAR(300),\000d\000a\0009FOREIGN KEY (USER_ID) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- PROFILE 테이블
+CREATE TABLE PROFILE (
+	PROFILE_ID IDENTITY PRIMARY KEY,
+	USER_ID VARCHAR(30) UNIQUE,
+	PROFILE_IMAGE VARCHAR(100),
+	INTRO VARCHAR(300),
+	FOREIGN KEY (USER_ID) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:41:04.111334+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- NOTICE 테이블\000d\000aCREATE TABLE NOTICE (\000d\000a\0009NOTICE_NO IDENTITY PRIMARY KEY, -- AUTO_INCREMENT\000d\000a\0009NOTICE_TITLE VARCHAR(30) NOT NULL,\000d\000a\0009NOTICE_WRITER VARCHAR(30) NOT NULL,\000d\000a\0009NOTICE_CONTENT VARCHAR(200) NOT NULL,\000d\000a\0009CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009FOREIGN KEY (NOTICE_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- NOTICE 테이블
+CREATE TABLE NOTICE (
+	NOTICE_NO IDENTITY PRIMARY KEY, -- AUTO_INCREMENT
+	NOTICE_TITLE VARCHAR(30) NOT NULL,
+	NOTICE_WRITER VARCHAR(30) NOT NULL,
+	NOTICE_CONTENT VARCHAR(200) NOT NULL,
+	CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (NOTICE_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:41:04.111334+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- BOARD 테이블\000d\000aCREATE TABLE BOARD (\000d\000a\0009BOARD_NO IDENTITY PRIMARY KEY,\000d\000a\0009BOARD_TITLE VARCHAR(100) NOT NULL,\000d\000a\0009BOARD_WRITER VARCHAR(30) NOT NULL,\000d\000a\0009BOARD_CONTENT CLOB NOT NULL, -- 큰 텍스트는 CLOB 사용\000d\000a\0009ORIGIN_NAME VARCHAR(100),\000d\000a\0009CHANGE_NAME VARCHAR(100),\000d\000a\0009COUNT INT DEFAULT 0,\000d\000a\0009CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\000d\000a\0009STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),\000d\000a\0009FOREIGN KEY (BOARD_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- BOARD 테이블
+CREATE TABLE BOARD (
+	BOARD_NO IDENTITY PRIMARY KEY,
+	BOARD_TITLE VARCHAR(100) NOT NULL,
+	BOARD_WRITER VARCHAR(30) NOT NULL,
+	BOARD_CONTENT CLOB NOT NULL, -- 큰 텍스트는 CLOB 사용
+	ORIGIN_NAME VARCHAR(100),
+	CHANGE_NAME VARCHAR(100),
+	COUNT INT DEFAULT 0,
+	CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),
+	FOREIGN KEY (BOARD_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:41:04.112740+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- REPLY 테이블\000d\000aCREATE TABLE REPLY (\000d\000a\0009REPLY_NO IDENTITY PRIMARY KEY,\000d\000a\0009REPLY_CONTENT VARCHAR(400) NOT NULL,\000d\000a\0009REF_BNO INT NOT NULL,\000d\000a\0009REPLY_WRITER VARCHAR(30) NOT NULL,\000d\000a\0009CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\000d\000a\0009STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),\000d\000a\0009FOREIGN KEY (REF_BNO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,\000d\000a\0009FOREIGN KEY (REPLY_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- REPLY 테이블
+CREATE TABLE REPLY (
+	REPLY_NO IDENTITY PRIMARY KEY,
+	REPLY_CONTENT VARCHAR(400) NOT NULL,
+	REF_BNO INT NOT NULL,
+	REPLY_WRITER VARCHAR(30) NOT NULL,
+	CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),
+	FOREIGN KEY (REF_BNO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,
+	FOREIGN KEY (REPLY_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:41:04.112740+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- TAG 테이블\000d\000aCREATE TABLE TAG (\000d\000a\0009TAG_ID IDENTITY PRIMARY KEY,\000d\000a\0009TAG_NAME VARCHAR(30) NOT NULL UNIQUE\000d\000a)"; SQL statement:
+- TAG 테이블
+CREATE TABLE TAG (
+	TAG_ID IDENTITY PRIMARY KEY,
+	TAG_NAME VARCHAR(30) NOT NULL UNIQUE
+) [42000-240]
+2025-12-11 11:41:04.113740+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- BOARD_TAG 테이블\000d\000aCREATE TABLE BOARD_TAG (\000d\000a\0009BOARD_NO INT,\000d\000a\0009TAG_ID INT,\000d\000a\0009PRIMARY KEY (BOARD_NO, TAG_ID),\000d\000a\0009FOREIGN KEY (BOARD_NO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,\000d\000a\0009FOREIGN KEY (TAG_ID) REFERENCES TAG(TAG_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- BOARD_TAG 테이블
+CREATE TABLE BOARD_TAG (
+	BOARD_NO INT,
+	TAG_ID INT,
+	PRIMARY KEY (BOARD_NO, TAG_ID),
+	FOREIGN KEY (BOARD_NO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,
+	FOREIGN KEY (TAG_ID) REFERENCES TAG(TAG_ID) ON DELETE CASCADE
+) [42000-240]
+2025-12-11 11:41:46.642474+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]- REPLY 테이블\000d\000aCREATE TABLE REPLY (\000d\000a\0009REPLY_NO IDENTITY PRIMARY KEY,\000d\000a\0009REPLY_CONTENT VARCHAR(400) NOT NULL,\000d\000a\0009REF_BNO INT NOT NULL,\000d\000a\0009REPLY_WRITER VARCHAR(30) NOT NULL,\000d\000a\0009CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,\000d\000a\0009STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),\000d\000a\0009FOREIGN KEY (REF_BNO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,\000d\000a\0009FOREIGN KEY (REPLY_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE\000d\000a)"; SQL statement:
+- REPLY 테이블
+CREATE TABLE REPLY (
+	REPLY_NO IDENTITY PRIMARY KEY,
+	REPLY_CONTENT VARCHAR(400) NOT NULL,
+	REF_BNO INT NOT NULL,
+	REPLY_WRITER VARCHAR(30) NOT NULL,
+	CREATE_DATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+	STATUS CHAR(1) DEFAULT 'Y' NOT NULL CHECK (STATUS IN ('Y', 'N')),
+	FOREIGN KEY (REF_BNO) REFERENCES BOARD(BOARD_NO) ON DELETE CASCADE,
+	FOREIGN KEY (REPLY_WRITER) REFERENCES MEMBER(USER_ID) ON DELETE CASCADE
+) [42000-240]
