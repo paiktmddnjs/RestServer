@@ -1,31 +1,25 @@
 package com.kh.crud.controller;
 
-import com.kh.crud.service.LikeService;
+import com.kh.crud.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/api/posts")
+@CrossOrigin(origins = "*")
 public class LikeController {
 
-    private final LikeService likeService;
+    private final PostService postService;
 
     // 좋아요 토글
-    @PostMapping("/boards/{boardId}/like")
-    public Long toggleLike(
-            @PathVariable Long boardId,
-            @RequestBody Map<String, Long> body
+    @PostMapping("/{postId}/like")
+    public ResponseEntity<PostService.LikeResponse> toggleLike(
+            @PathVariable Long postId,
+            @RequestParam String userId
     ) {
-        Long userId = body.get("userId");
-        return likeService.toggleLike(userId, boardId);
-    }
-
-    // 좋아요 개수 조회
-    @GetMapping("/boards/{boardId}/likes")
-    public Long getLikeCount(@PathVariable Long boardId) {
-        return likeService.getLikeCount(boardId);
+        PostService.LikeResponse response = postService.toggleLike(postId, userId);
+        return ResponseEntity.ok(response);
     }
 }

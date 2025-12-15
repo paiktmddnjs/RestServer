@@ -1,39 +1,38 @@
 package com.kh.crud.service;
 
-import com.kh.crud.entity.LikeEntity;
-import com.kh.crud.repository.LikeRepository;
+import com.kh.crud.entity.Post;
+import com.kh.crud.entity.PostLike;
+import com.kh.crud.entity.User;
+import com.kh.crud.repository.PostLikeRepository;
+import com.kh.crud.repository.PostRepository;
+import com.kh.crud.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class LikeService {
 
-    private final LikeRepository likeRepository;
+    private final PostLikeRepository likeRepository;
+    private final UserRepository userRepository;
+    private final PostRepository postRepository;
 
-    // 좋아요 토글
-    public Long toggleLike(Long userId, Long boardId) {
+    public int toggleLike(Long postId, String userId) {
 
-        // 이미 좋아요 눌렀는지 확인
-        LikeEntity like = likeRepository.findByUserIdAndBoardId(userId, boardId);
+        User user = userRepository.findById(userId).orElseThrow();
+        Post post = postRepository.findById(postId).orElseThrow();
 
-        if (like != null) {
-            // 누른 상태 → 취소
-            likeRepository.delete(like);
+        Optional<PostLike> like =
+                likeRepository.findByUserAndPost(user, post);
+
+        if (like.isPresent()) {
+            likeRepository.delete(like.get());
         } else {
-            // 안 누른 상태 → 추가
-            LikeEntity newLike = new LikeEntity();
-            newLike.setUserId(userId);
-            newLike.setBoardId(boardId);
-            likeRepository.save(newLike);
+            likeRepository.save(new PostLike(user, post));
         }
 
-        // 현재 좋아요 개수 반환
-        return likeRepository.countByBoardId(boardId);
-    }
-
-    // 좋아요 개수만 조회
-    public Long getLikeCount(Long boardId) {
-        return likeRepository.countByBoardId(boardId);
+        return likeRepository.countByPost(post);
     }
 }

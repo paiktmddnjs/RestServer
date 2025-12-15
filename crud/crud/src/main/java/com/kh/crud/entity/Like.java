@@ -2,18 +2,21 @@ package com.kh.crud.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
-@Table(name = "likes")
-@Getter @Setter
-public class LikeEntity {
-
+public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
+    @ManyToOne
+    private User user;
 
-    private Long boardId;
+    @ManyToOne
+    private Post post;
 }
