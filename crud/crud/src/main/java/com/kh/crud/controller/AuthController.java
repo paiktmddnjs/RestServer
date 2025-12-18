@@ -1,7 +1,5 @@
 package com.kh.crud.controller;
 
-import com.kh.crud.controller.dto.request.LoginRequest;
-import com.kh.crud.controller.dto.response.LoginResponse;
 import com.kh.crud.entity.User;
 import com.kh.crud.repository.UserRepository;
 import org.springframework.http.ResponseEntity;

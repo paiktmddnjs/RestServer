@@ -25,7 +25,7 @@ public class LikeService {
         Post post = postRepository.findById(postId).orElseThrow();
 
         Optional<PostLike> like =
-                likeRepository.findByUserAndPost(user, post);
+                likeRepository.findByUserIdAndPost( userId, post);
 
         if (like.isPresent()) {
             likeRepository.delete(like.get());

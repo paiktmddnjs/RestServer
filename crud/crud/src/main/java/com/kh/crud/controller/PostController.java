@@ -1,10 +1,9 @@
-// src/main/java/com/example/demo/controller/PostController.java
+// src/main/java/com/kh/crud/controller/PostController.java (통합 최종 버전)
 
 package com.kh.crud.controller;
 
-import com.kh.crud.controller.dto.response.LikeResponse;
 import com.kh.crud.entity.Post;
-import com.kh.crud.service.PostService; // 🌟 PostService import
+import com.kh.crud.service.PostService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,81 +12,75 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-// React와 같은 다른 도메인(localhost:3000)에서 API 호출을 허용합니다. (CORS 설정)
-@CrossOrigin(origins = "http://localhost:3000")
+// 모든 게시글 관련 API를 여기서 처리합니다.
+@CrossOrigin(origins = "*") // React 도메인 명시
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/posts") // 기본 경로 통일
 public class PostController {
 
     @Autowired
-    private PostService postService; // 🌟 PostService 주입
+    private PostService postService;
 
     // -----------------------------------------
     // 1. 게시글 목록 조회 (GET /api/posts)
     // -----------------------------------------
     @GetMapping
     public List<Post> getAllPosts() {
-        // Service 계층 호출
         return postService.findAllPosts();
     }
 
-    // -----------------------------------------
     // 2. 게시글 추가 (POST /api/posts)
-    // -----------------------------------------
     @PostMapping
     public Post createPost(@RequestBody Post post) {
-        // Service 계층 호출
         return postService.savePost(post);
     }
 
     // -----------------------------------------
-    // 3-1. 좋아요 토글 (POST /api/posts/{postId}/like)
+    // 3. 게시글 상세 조회 (GET /api/posts/{id}) - BoardController 기능 통합
+    // -----------------------------------------
+    @GetMapping("/{postId}")
+    public Optional<Post> getPost(@PathVariable Long postId) {
+        // ID로 게시글을 찾습니다. Optional 반환으로 유연하게 처리
+        return postService.findPostById(postId);
+    }
+
+    // -----------------------------------------
+    // 4. 좋아요 토글 (POST /api/posts/{postId}/like)
     // -----------------------------------------
     @PostMapping("/{postId}/like")
-    // 반환 타입은 LikeResponse로 변경하는 것이 좋습니다.
-    public ResponseEntity<LikeResponse> toggleLike(@PathVariable Long postId, @RequestBody LikeRequest request) {
+    public ResponseEntity<PostService.LikeResponse> toggleLike(@PathVariable Long postId, @RequestBody LikeRequest request) {
 
-        // Controller는 요청을 받고 Service에 2개의 인수를 전달합니다.
-        LikeResponse response = postService.toggleLike(postId, request.getUserId());
+        // 🌟 LikeResponse response = postService.toggleLike(postId, request.getUserId());
+        // 🌟 이전에 발생했던 2개 인수 오류를 해결하는 호출입니다.
+        PostService.LikeResponse response = postService.toggleLike(postId, request.getUserId());
 
         return ResponseEntity.ok(response);
     }
 
-    // -----------------------------------------
-    // 3-2. 좋아요 카운트 조회 (GET /api/posts/{postId}/likes)
-    // -----------------------------------------
+    // 5. 좋아요 카운트 조회 (GET /api/posts/{postId}/likes)
     @GetMapping("/{postId}/likes")
     public int getLikeCount(@PathVariable Long postId) {
-        // Service를 통해 조회하고 좋아요 카운트 반환
         return postService.findPostById(postId)
                 .map(Post::getLikes)
                 .orElse(0);
     }
 
-    // -----------------------------------------
-    // 4. 게시글 삭제 (DELETE /api/posts/{postId})
-    // -----------------------------------------
+    // 6. 게시글 삭제 (DELETE /api/posts/{postId})
     @DeleteMapping("/{postId}")
     public ResponseEntity<Void> deletePost(@PathVariable Long postId) {
-        // Service를 통해 게시글 존재 여부 확인
         if (!postService.findPostById(postId).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        // Service를 통해 삭제
         postService.deletePost(postId);
         return ResponseEntity.noContent().build();
     }
 
-    // -----------------------------------------
-    // 5. 게시글 수정 (PUT /api/posts/{postId})
-    // -----------------------------------------
+    // 7. 게시글 수정 (PUT /api/posts/{postId})
     @PutMapping("/{postId}")
     public Optional<Post> updatePost(@PathVariable Long postId, @RequestBody Post updatedPost) {
 
-        // Service를 통해 기존 게시글을 찾고, 수정 로직을 처리한 후 저장합니다.
         return postService.findPostById(postId)
                 .map(post -> {
-                    // 필드 업데이트 (DTO를 별도로 만들면 더 깔끔하지만, 여기서는 Entity를 재활용)
                     post.setTitle(updatedPost.getTitle());
                     post.setContent(updatedPost.getContent());
                     post.setAuthor(updatedPost.getAuthor());
@@ -96,16 +89,16 @@ public class PostController {
                     post.setDate(updatedPost.getDate());
                     post.setImage(updatedPost.getImage());
 
-                    // Service를 통해 저장 (업데이트)
                     return postService.savePost(post);
                 });
     }
 
     // -----------------------------------------
-    // LikeRequest DTO (Data Transfer Object)
+    // LikeRequest DTO: userId는 String (User 엔티티 ID 타입과 일치)
     // -----------------------------------------
     @Data
     public static class LikeRequest {
-        private Long userId;
+        // 🌟 User 엔티티의 ID가 String 타입이므로, Long이 아닌 String으로 수정해야 합니다.
+        private String userId;
     }
 }

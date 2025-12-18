@@ -5,9 +5,14 @@ package com.kh.crud.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Entity
+@Getter
 @Table(name = "post")
 @Data // Getter, Setter, RequiredArgsConstructor, ToString, EqualsAndHashCode 자동 생성
 @NoArgsConstructor // 기본 생성자 자동 생성
@@ -30,10 +35,18 @@ public class Post {
     private String date;
 
     private String image;
+
+    private int likeCount;
+
+    private LocalDateTime createdDate;
+
     private int likes = 0; // 좋아요 수 기본값
 
     // 좋아요 수를 증가시키는 메서드 (Setter 대신 비즈니스 로직으로 사용)
     public void incrementLikes() {
         this.likes++;
     }
+
+
+
 }
