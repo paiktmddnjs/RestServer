@@ -17,6 +17,8 @@ public class AuthController {
     @Autowired
     private UserRepository userRepository;
 
+
+
     // -----------------------------------------
     // 1. 회원가입 (POST /api/auth/register) - RegisterPage.jsx 대응
     // -----------------------------------------
@@ -63,6 +65,12 @@ public class AuthController {
                 })
                 .orElseGet(() -> ResponseEntity.badRequest().body("사용자를 찾을 수 없습니다.")); // 3. 사용자가 없는 경우
     }
+
+    @GetMapping("/users/count")
+    public ResponseEntity<Long> countUsers() {
+        return ResponseEntity.ok(userRepository.count());
+    }
+
 
     // -----------------------------------------
     // Login 요청을 위한 DTO
